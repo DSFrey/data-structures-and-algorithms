@@ -165,7 +165,16 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 ------------------------------------------------------------------------------------------------ */
 
 const evenOddNumericValues = (arr) => {
-  // Solution code here...
+  let filterArray = arr.filter(value => typeof value === 'number');
+  let returnArray = filterArray.map(
+    numberValue => {
+      if (numberValue % 2) {
+        return 'odd';
+      } else {
+        return 'even';
+      }
+    });
+  return returnArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -275,7 +284,7 @@ describe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should remove non-integers and return "even" or "odd', () => {
     expect(evenOddNumericValues(['Gregor', 2, 4, 1])).toStrictEqual(['even', 'even', 'odd']);
     expect(evenOddNumericValues(['Gregor', 2, 4, 1]).length).toStrictEqual(3);
