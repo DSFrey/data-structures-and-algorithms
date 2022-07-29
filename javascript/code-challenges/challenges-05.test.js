@@ -103,9 +103,7 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-const returnNames = (arr) => {
-  // Solution code here...
-};
+const returnNames = (arr) => arr.reduce((previous, current) => [...previous, current.name], []);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
