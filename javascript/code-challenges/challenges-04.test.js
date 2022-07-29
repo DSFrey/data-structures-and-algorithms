@@ -124,7 +124,7 @@ Write a function named sortNumbersByLength that takes in an array of numbers and
 For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
-const sortNumbersByLength = (arr) => arr.sort((a,b) => a.toString().length - b.toString().length);
+const sortNumbersByLength = (arr) => arr.sort((a,b) => `${a}`.length - `${b}`.length); // a.toString().length would also work
 
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -191,7 +191,7 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  let dayNumber = {
+  const dayNumber = {
     Monday: 0,
     Tuesday: 1,
     Wednesday: 2,
@@ -212,7 +212,7 @@ You DO NOT need to use your solution to Challenge 12 in completing Challenge 13.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
-  let dayNumber = {
+  const dayNumber = {
     Monday: 0,
     Tuesday: 1,
     Wednesday: 2,
@@ -220,8 +220,7 @@ const sortSchedule = (arr) => {
     Friday: 4
   };
   return arr.sort((a,b) => {
-    if (dayNumber[a.dayOfWeek] < dayNumber[b.dayOfWeek]) return -1;
-    if (dayNumber[a.dayOfWeek] > dayNumber[b.dayOfWeek]) return 1;
+    if (dayNumber[a.dayOfWeek] !== dayNumber[b.dayOfWeek]) return dayNumber[a.dayOfWeek] - dayNumber[b.dayOfWeek];
     if (a.start !== b.start) return a.start - b.start;
     return (a.end - a.start) - (b.end - b.start);
   });
