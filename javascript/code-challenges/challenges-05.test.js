@@ -20,9 +20,7 @@ Write a function named addValues that, given an array of numbers as input, uses 
 
 ------------------------------------------------------------------------------------------------ */
 
-const addValues = (arr) => {
-  // Solution code here...
-};
+const addValues = (arr) => arr.reduce((previous, current) => previous + current, 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
