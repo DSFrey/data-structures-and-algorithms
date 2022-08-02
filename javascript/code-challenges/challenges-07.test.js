@@ -24,7 +24,7 @@ let starWarsPeople = [
   },
 ];
 
-const sortStarWarsCharacters = (starWarsArr) => starWarsArr.sort((a,b) => b.height - a.height);
+const sortStarWarsCharacters = (starWarsArr) => starWarsArr.sort((a, b) => b.height - a.height);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -33,7 +33,7 @@ Write a function named removeThree that takes an index and an array. The functio
 ------------------------------------------------------------------------------------------------ */
 
 const removeThree = (idx, arr) => {
-  arr.splice(idx,3);
+  arr.splice(idx, 3);
   return arr;
 };
 
@@ -60,7 +60,9 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
+  for (let i = 0; i <= str.length; i++) {
+    result.push(str.slice(i));
+  }
   return result;
 };
 
