@@ -53,7 +53,7 @@ let characters = [
 ];
 
 const sortByChildren = (charArray) => {
-  return charArray.sort((a,b) => {
+  return charArray.sort((a, b) => {
     if (a.children.length > b.children.length) return 1;
     if (a.children.length < b.children.length) return -1;
     if (a.house > b.house) return 1;
@@ -102,9 +102,7 @@ Write a function named isCapitalized that takes in a string. This function shoul
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
-const isCapitalized = (str) => {
-  // Solution code here...
-};
+const isCapitalized = (str) => /[A-Z]/.test(str) ? str.match(/[A-Z][a-z]+/g) : [];
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
