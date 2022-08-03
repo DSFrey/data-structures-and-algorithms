@@ -202,7 +202,7 @@ CHALLENGE 11 - Stretch Goal
 Write a function named totalSumCSV that, given a string of comma-separated values (CSV) as input. (e.g. "1,2,3"), returns the total sum of the numeric values (e.g. 6).
 ------------------------------------------------------------------------------------------------ */
 
-const totalSumCSV = (str) => str.split(',').reduce((sum,n) => sum + parseInt(n),0);
+const totalSumCSV = (str) => str.split(',').reduce((sum, n) => sum + parseInt(n), 0);
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -213,7 +213,7 @@ Write a function named removeVowels that takes in a string and returns a new str
 For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
-const removeVowels = (str) => str.split('').filter(letter => !['a','e','i','o','u'].includes(letter)).join('');
+const removeVowels = (str) => str.split('').filter(letter => !['a', 'e', 'i', 'o', 'u'].includes(letter)).join('');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 13 - Stretch Goal
@@ -226,8 +226,8 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => [
-  str.split('').filter(letter => !['a','e','i','o','u'].includes(letter)).join(''),
-  str.split('').filter(letter => ['a','e','i','o','u'].includes(letter)).sort().join('')
+  str.split('').filter(letter => !['a', 'e', 'i', 'o', 'u'].includes(letter)).join(''),
+  str.split('').filter(letter => ['a', 'e', 'i', 'o', 'u'].includes(letter)).sort().join('')
 ];
 
 /* ------------------------------------------------------------------------------------------------
@@ -245,7 +245,7 @@ describe('Testing challenge 1', () => {
   test('It should sort the star wars characters by height from tallest to shortest', () => {
     expect(sortStarWarsCharacters(starWarsPeople)[0]['name']).toStrictEqual('Luke Skywalker');
     expect(sortStarWarsCharacters(starWarsPeople)[2]['height']).toStrictEqual('96');
-  })
+  });
 });
 
 describe('Testing challenge 2', () => {
