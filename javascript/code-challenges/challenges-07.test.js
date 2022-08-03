@@ -213,9 +213,7 @@ Write a function named removeVowels that takes in a string and returns a new str
 For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
-const removeVowels = (str) => {
-  // Solution code here...
-};
+const removeVowels = (str) => str.split('').filter(letter => !['a','e','i','o','u'].includes(letter)).join('');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 13 - Stretch Goal
@@ -335,7 +333,7 @@ describe('Testing challenge 11', () => {
   });
 });
 
-xdescribe('Testing challenge 12', () => {
+describe('Testing challenge 12', () => {
   test('It should return the string without vowels', () => {
     expect(removeVowels('gregor')).toStrictEqual('grgr');
     expect(removeVowels('gregor').length).toStrictEqual(4);
