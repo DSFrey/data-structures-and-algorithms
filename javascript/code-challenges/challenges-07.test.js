@@ -225,9 +225,10 @@ For example, extractVowels('gregor') returns ['grgr', 'eo'].
 Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioou']
 ------------------------------------------------------------------------------------------------ */
 
-const extractVowels = (str) => {
-  // Solution code here...
-};
+const extractVowels = (str) => [
+  str.split('').filter(letter => !['a','e','i','o','u'].includes(letter)).join(''),
+  str.split('').filter(letter => ['a','e','i','o','u'].includes(letter)).sort().join('')
+];
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -342,7 +343,7 @@ describe('Testing challenge 12', () => {
   });
 });
 
-xdescribe('Testing challenge 13', () => {
+describe('Testing challenge 13', () => {
   test('It should return the string without vowels', () => {
     expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
     expect(extractVowels('gregor').length).toStrictEqual(2);
