@@ -124,7 +124,7 @@ If the user enters any of these four inputs, return true. For any other input, r
 Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
-const matchMonth = (input) => /[(\bOctober\b)(\bOct\b)(\boctober\b)(\boct\b)]/.test(input);
+const matchMonth = (input) => /(\bO?o?ct(ober)?\b)/.test(input);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
