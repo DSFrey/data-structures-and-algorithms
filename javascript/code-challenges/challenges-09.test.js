@@ -106,11 +106,7 @@ const characters = [
   },
 ];
 
-const getHouses = (arr) => {
-  let houses = [];
-  // Solution code here...
-  return houses;
-};
+const getHouses = (arr) => arr.map(char => char.house);
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 6
