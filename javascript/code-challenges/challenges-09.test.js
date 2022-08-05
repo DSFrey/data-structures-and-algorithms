@@ -10,7 +10,7 @@ using the 'reduce' method.
 
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
-const maxInArray = (arr) => arr.reduce((prev,curr) => curr > prev ? curr : prev);
+const maxInArray = (arr) => arr.reduce((prev, curr) => curr > prev ? curr : prev);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -19,7 +19,8 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
@@ -126,7 +127,7 @@ const hasChildrenValues = (arr, character) => {
   let hasChildren = false;
   arr.forEach(char => {
     if (Object.values(char).includes(character)) {
-      if (Object.keys(char).includes('children')) {hasChildren = true;}
+      if (Object.keys(char).includes('children')) { hasChildren = true; }
     }
   });
   return hasChildren;
@@ -143,7 +144,7 @@ The input and output of this function are the same as the input and output from 
 const hasChildrenEntries = (arr, character) => {
   let hasChildren = false;
   arr.forEach(char => {
-    if (Object.entries(char)[0][1] === character && Object.entries(char)[2][0] === 'children') {hasChildren = true;}
+    if (Object.entries(char)[0][1] === character && Object.entries(char)[2][0] === 'children') { hasChildren = true; }
   });
   return hasChildren;
 };
@@ -158,13 +159,13 @@ const totalCharacters = (arr) => {
   let allCharacters = arr.reduce((charList, char) => {
     let additions = [char.name];
     if (char.spouse !== null) {
-      additions = [...additions,char.spouse];
+      additions = [...additions, char.spouse];
     }
-    if ('children' in char) {
-      additions = [...additions,...char.children];
+    if (Object.keys(char).includes('children')) {
+      additions = [...additions, ...char.children];
     }
-    return [...charList,...additions];
-  },[]);
+    return [...charList, ...additions];
+  }, []);
   return allCharacters.length;
 };
 
@@ -182,12 +183,12 @@ const houseSize = (arr) => {
   return arr.map(char => {
     let charList = [char.name];
     if (char.spouse !== null) {
-      charList = [...charList,char.spouse];
+      charList = [...charList, char.spouse];
     }
-    if ('children' in char) {
-      charList = [...charList,...char.children];
+    if (Object.keys(char).includes('children')) {
+      charList = [...charList, ...char.children];
     }
-    return {house: char.house,members:charList.length};
+    return { house: char.house, members: charList.length };
   });
 };
 
@@ -210,9 +211,17 @@ For example: [ { house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, .
 const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
-  const survivors = [];
-  // Solution code here...
-  return survivors;
+  return arr.map(char => {
+    let charList = [char.name];
+    if (char.spouse !== null) {
+      charList = [...charList, char.spouse];
+    }
+    if (Object.keys(char).includes('children')) {
+      charList = [...charList, ...char.children];
+    }
+    let survivorList = charList.filter(character => !deceasedSpouses.includes(character));
+    return { house: char.house, members: survivorList.length };
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -304,7 +313,7 @@ describe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should not include any deceased spouses', () => {
     expect(houseSurvivors(characters)[2]).toStrictEqual({ house: 'Lannister', members: 4 });
   });
