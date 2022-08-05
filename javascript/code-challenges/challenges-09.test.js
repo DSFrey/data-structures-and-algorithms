@@ -155,7 +155,17 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let allCharacters = arr.reduce((charList, char) => {
+    let additions = [char.name];
+    if (char.spouse !== null) {
+      additions = [...additions,char.spouse];
+    }
+    if ('children' in char) {
+      additions = [...additions,...char.children];
+    }
+    return [...charList,...additions];
+  },[]);
+  return allCharacters.length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -274,7 +284,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return the number of characters in the array', () => {
     expect(totalCharacters(characters)).toStrictEqual(27);
   });
