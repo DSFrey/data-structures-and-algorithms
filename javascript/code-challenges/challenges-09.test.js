@@ -179,9 +179,16 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 ------------------------------------------------------------------------------------------------ */
 
 const houseSize = (arr) => {
-  const sizes = [];
-  // Solution code here...
-  return sizes;
+  return arr.map(char => {
+    let charList = [char.name];
+    if (char.spouse !== null) {
+      charList = [...charList,char.spouse];
+    }
+    if ('children' in char) {
+      charList = [...charList,...char.children];
+    }
+    return {house: char.house,members:charList.length};
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -290,7 +297,7 @@ describe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should return an object for each house containing the name and size', () => {
     expect(houseSize(characters)[1]).toStrictEqual({ house: 'Arryn', members: 3 });
     expect(houseSize(characters).length).toStrictEqual(7);
