@@ -90,8 +90,8 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   let salesObjects = [];
-  hours.forEach((hour,hourIndex) => {
-    salesObjects.push({sales: `${data[hourIndex]} cookies`, time: hour});
+  hours.forEach((hour, hourIndex) => {
+    salesObjects.push({ sales: `${data[hourIndex]} cookies`, time: hour });
   });
   return salesObjects;
 };
@@ -127,7 +127,7 @@ const howManyTreats = (arr) => {
       }
     }
   }
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -157,9 +157,7 @@ Write a function named calculateProduct that takes in a two-dimensional array of
 For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
-const calculateProduct = (numbers) => {
-  // Solution code here...
-};
+const calculateProduct = (numbers) => numbers.reduce((product, arr) => arr.reduce((subproduct, num) => subproduct * num, 1) * product, 1);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -301,7 +299,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
