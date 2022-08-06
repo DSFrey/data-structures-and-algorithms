@@ -214,9 +214,7 @@ The function should parse the string as rows and columns and compute the sum of 
 For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
-const excel = (str) => {
-  // Solution code here...
-};
+const excel = (str) => str.split('\n').map(row => row.split(',').reduce((sum, value) => sum + parseInt(value), 0));
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -327,7 +325,7 @@ describe('Testing challenge 10', () => {
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should return the total count for each row', () => {
     let result = excel('1,1,1\n4,4,4\n9,9,9');
     expect(result.length).toStrictEqual(3);
