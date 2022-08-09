@@ -26,9 +26,7 @@ Write a function named validateWord that uses a regular expression pattern to va
 If the word is between 5 and 10 characters long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
-const validateWord = (word) => {
-  // Solution code here...
-};
+const validateWord = (word) => /^[A-Za-z]{5,10}$/.test(word);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
