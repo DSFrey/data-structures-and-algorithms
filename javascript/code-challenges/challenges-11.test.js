@@ -130,9 +130,7 @@ CHALLENGE 6
 Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the character who is the shortest in height.
 ------------------------------------------------------------------------------------------------ */
 
-let findShortest = (data) => {
-  // Solution code here...
-};
+let findShortest = (data) => data.sort((a, b) => a.height - b.height)[0].name;
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
