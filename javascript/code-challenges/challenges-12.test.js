@@ -54,9 +54,7 @@ Return either true or false.
 Note: if you ever need to validate an email using a regex in practice, the Internet has the actual regex you should use. It's many many lines long.
 ------------------------------------------------------------------------------------------------ */
 
-const validateEmail = (email) => {
-  // Solution code here...
-};
+const validateEmail = (email) => /^((\w+)|(\w+\.\w+))@\w+\.((net)|(com)|(org))$/.test(email);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
