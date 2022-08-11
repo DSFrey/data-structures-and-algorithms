@@ -7,7 +7,7 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-  let longest = arr.reduce((previous,current) => previous.length > current.length ? previous : current,'');
+  let longest = arr.reduce((previous, current) => previous.length > current.length ? previous : current, '');
   return arr.indexOf(longest);
 };
 
@@ -39,9 +39,7 @@ Write a function named standardizePhoneNumbers that takes in an array of phone n
 For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
-const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
-};
+const standardizePhoneNumbers = (arr) => arr.map(phone => phone.substring(1, 4) + phone.substring(6, 9) + phone.substring(10, 14));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
