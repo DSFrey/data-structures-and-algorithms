@@ -3,13 +3,14 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function named longestString that takes in an array of strings and returns the index position of the longest string. 
+Write a function named longestString that takes in an array of strings and returns the index position of the longest string.
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-// Solution code here...
+  let longest = arr.reduce((previous,current) => previous.length > current.length ? previous : current,'');
+  return arr.indexOf(longest);
 };
-  
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -47,7 +48,7 @@ const standardizePhoneNumbers = (arr) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5 
+CHALLENGE 5
 
 Write a function named onlyOddChars that takes in a string and returns only the odd-index characters from that string.
 
@@ -59,7 +60,7 @@ const onlyOddChars = (str) => {
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 6 
+CHALLENGE 6
 
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
@@ -158,7 +159,7 @@ describe('Testing challenge 1', () => {
   test('It should return an index position of the longest string', () => {
     const strArray1 = ['Ginger', 'Goose', 'Tangerine', 'Rosie', 'Mario', 'Malaki']
     const strArray2 = [];
-    const strArray3= ['Ginger']
+    const strArray3 = ['Ginger']
 
     expect(longestString(strArray1)).toStrictEqual(2);
     expect(longestString(strArray2)).toStrictEqual(-1);
