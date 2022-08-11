@@ -29,9 +29,7 @@ Write a function named findHappiness that takes in an array of strings and retur
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this is great :)', ':)))))']
 ------------------------------------------------------------------------------------------------ */
 
-const findHappiness = (arr) => {
-  // Solution code here...
-};
+const findHappiness = (arr) => arr.filter(string => string.includes(':)'));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
