@@ -23,4 +23,5 @@ To run your tests
 |Table of Contents|
 |---|
 |[Array Reverse](./javascript/array-reverse/README.md)|
-|[Array Insert-Shift](./javascript/array-insert-shift/README.md)|
+|[Array Insert Shift](./javascript/array-insert-shift/README.md)|
+|[Array Binary Search](./javascript/array-binary-search/README.md)|
