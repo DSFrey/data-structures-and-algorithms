@@ -5,10 +5,11 @@ class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
+    this.previous = null;
   }
 }
 
-class LinkedList {
+class DoubleLinkedList {
   constructor() {
     this.head = null;
   }
@@ -29,6 +30,7 @@ class LinkedList {
       current = current.next;
     }
     current.next = node;
+    node.previous = current;
   }
 
   /**
@@ -38,6 +40,7 @@ class LinkedList {
   insert(value) {
     const node = new Node(value);
     node.next = this.head;
+    node.next.previous = node;
     this.head = node;
   }
 
@@ -71,4 +74,4 @@ class LinkedList {
   }
 }
 
-module.exports = LinkedList;
+module.exports = DoubleLinkedList;
