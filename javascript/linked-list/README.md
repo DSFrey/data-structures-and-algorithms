@@ -48,11 +48,14 @@ Create a Node class that has properties for the value stored in the Node, and a 
   - time = O(n)
   - space = O(n)
 - append
-  - time = O()
-  - space = O()
+  - time = O(n)
+  - space = O(n)
 - insertBefore
-  - time = O()
-  - space = O()
+  - time = O(n)
+  - space = O(n)
 - insertAfter
-  - time = O()
-  - space = O()
+  - time = O(n)
+  - space = O(n)
+- delete
+  - time = O(n)
+  - space = O(1)
