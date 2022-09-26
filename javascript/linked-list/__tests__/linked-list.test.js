@@ -43,4 +43,55 @@ describe('Linked List', () => {
     newList.insert('{ a }');
     expect(newList.toString()).toEqual('{ a } -> { b } -> { c } -> NULL');
   });
+  test('Add a node to the end of the linked list',()=>{
+    let newList = new LinkedList();
+    newList.insert('{ a }');
+    newList.insert('{ b }');
+    newList.append('{ c }');
+    expect(newList.toString()).toEqual('{ b } -> { a } -> { c } -> NULL');
+  });
+  test('Add multiple nodes to the end of the linked list',()=>{
+    let newList = new LinkedList();
+    newList.append('{ a }');
+    newList.append('{ b }');
+    newList.append('{ c }');
+    expect(newList.toString()).toEqual('{ a } -> { b } -> { c } -> NULL');
+  });
+  test('Insert a node before a node located in the middle of a linked list',()=>{
+    let newList = new LinkedList();
+    newList.append('{ a }');
+    newList.append('{ b }');
+    newList.insertBefore('{ b }','{ c }');
+    expect(newList.toString()).toEqual('{ a } -> { c } -> { b } -> NULL');
+  });
+  test('Insert a node before the first node of a linked list',()=>{
+    let newList = new LinkedList();
+    newList.append('{ a }');
+    newList.append('{ b }');
+    newList.insertBefore('{ a }','{ c }');
+    expect(newList.toString()).toEqual('{ c } -> { a } -> { b } -> NULL');
+  });
+  test('Insert after a node in the middle of the linked list',()=>{
+    let newList = new LinkedList();
+    newList.append('{ a }');
+    newList.append('{ b }');
+    newList.insertAfter('{ a }','{ c }');
+    expect(newList.toString()).toEqual('{ a } -> { c } -> { b } -> NULL');
+  });
+  test('Insert a node after the last node of the linked list',()=>{
+    let newList = new LinkedList();
+    newList.append('{ a }');
+    newList.append('{ b }');
+    newList.insertAfter('{ b }','{ c }');
+    expect(newList.toString()).toEqual('{ a } -> { b } -> { c } -> NULL');
+  });
+  test('Add multiple nodes to the end of the linked list',()=>{
+    let newList = new LinkedList();
+    newList.append('{ a }');
+    newList.append('{ b }');
+    newList.append('{ c }');
+    expect(newList.toString()).toEqual('{ a } -> { b } -> { c } -> NULL');
+    newList.delete('{ b }');
+    expect(newList.toString()).toEqual('{ a } -> { c } -> NULL');
+  });
 });

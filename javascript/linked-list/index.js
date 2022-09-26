@@ -18,7 +18,7 @@ class LinkedList {
    * @param {*} value
    * @returns
    */
-  add(value) {
+  append(value) {
     const node = new Node(value);
     if (!this.head) {
       this.head = node;
@@ -53,6 +53,61 @@ class LinkedList {
       current = current.next;
     }
     return false;
+  }
+
+  /**
+   * Inserts new node in specified place
+   * @param {*} value Insert before this node
+   * @param {*} newValue Value to be inserted
+   * @returns
+   */
+  insertBefore(value, newValue) {
+    const node = new Node(newValue);
+    if (this.head.value === value) {
+      node.next = this.head;
+      this.head = node;
+      return;
+    }
+    let current = this.head;
+    while (current.next) {
+      if (current.next.value === value) {
+        node.next = current.next;
+        current.next = node;
+        return;
+      }
+      current = current.next;
+    }
+  }
+
+  /**
+   * Inserts new node in specified place
+   * @param {*} value Insert after this node
+   * @param {*} newValue Value to be inserted
+   * @returns
+   */
+  insertAfter(value, newValue) {
+    const node = new Node(newValue);
+    let current = this.head;
+    while (current) {
+      if (current.value === value) {
+        node.next = current.next;
+        current.next = node;
+        return;
+      }
+      current = current.next;
+    }
+  }
+
+  /**
+   *  Delete node with specified value from the list
+   * @param {*} value
+   */
+  delete(value){
+    let current = this.head;
+    while (current.next) {
+      if (current.next.value === value) current.next = current.next.next;
+      current = current.next;
+    }
   }
 
   /**
