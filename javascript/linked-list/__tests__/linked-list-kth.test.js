@@ -5,11 +5,11 @@ const LinkedList = require('../index');
 
 describe('Linked List method kthFromEnd', () => {
   let newList = new LinkedList();
+  newList.insert(0);
   newList.insert(1);
   newList.insert(2);
   newList.insert(3);
   newList.insert(4);
-  newList.insert(5);
   test('Find the node k positions from the end', () => {
     expect(newList.kthFromEnd(2)).toEqual(2);
   });
