@@ -33,8 +33,12 @@ Create a Node class that has properties for the value stored in the Node, and a 
   - insert after
     - arguments: value, new value
     - adds a new node with the given new value immediately after the first node that has the value specified
+  - kthFromEnd
+    - arguments: number
+    - finds the value of the node a certain number of nodes from the end
 - Stretch Goal: Implement a doubly linked list
 - Stretch Goal: Write an additional method to delete a node with the given value from the linked list
+- Stretch Goal: Implement a method that finds the node at the middle of the Linked List.
 
 ## Approach & Efficiency
 
@@ -57,5 +61,11 @@ Create a Node class that has properties for the value stored in the Node, and a 
   - time = O(n)
   - space = O(n)
 - delete
+  - time = O(n)
+  - space = O(1)
+- kthFromEnd
+  - time = O(n)
+  - space = O(1)
+- middleNode
   - time = O(n)
   - space = O(1)
