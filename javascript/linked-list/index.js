@@ -102,7 +102,7 @@ class LinkedList {
    *  Delete node with specified value from the list
    * @param {*} value
    */
-  delete(value){
+  delete(value) {
     let current = this.head;
     while (current.next) {
       if (current.next.value === value) current.next = current.next.next;
@@ -123,6 +123,43 @@ class LinkedList {
     }
     result += ' -> NULL';
     return result;
+  }
+
+  /**
+   *
+   * @param {integer} k - how moany nodes to cound back from the end
+   * @returns Returns value of node k from the end
+   */
+  kthFromEnd(k) {
+    let length = 0;
+    let current = this.head;
+    while (current) {
+      length++;
+      current = current.next;
+    }
+    let targetIndex = length - k;
+    if (targetIndex < 1 || targetIndex > length) return 'Exception';
+    current = this.head;
+    for (let i = 1; i < targetIndex; i++) {
+      current = current.next;
+    }
+    return current.value;
+  }
+
+
+  middleNode() {
+    let length = 0;
+    let current = this.head;
+    while (current) {
+      length++;
+      current = current.next;
+    }
+    let targetIndex = Math.floor(length / 2);
+    current = this.head;
+    for (let i = 0; i < targetIndex; i++) {
+      current = current.next;
+    }
+    return current.value;
   }
 }
 
