@@ -124,6 +124,28 @@ class LinkedList {
     result += ' -> NULL';
     return result;
   }
+
+  /**
+   *
+   * @param {integer} k - how moany nodes to cound back from the end
+   * @returns Returns value of node k from the end
+   */
+  kthFromEnd(k){
+    let length = 0;
+    let current = this.head;
+    while (current) {
+      length++;
+      current = current.next;
+    }
+    let targetIndex = length - k;
+    if (targetIndex < 1 || targetIndex > length) return 'Exception';
+    current = this.head;
+    for (let i = 1; i < targetIndex; i++) {
+      current = current.next;
+      console.log(current.value);
+    }
+    return current.value;
+  }
 }
 
 module.exports = LinkedList;
