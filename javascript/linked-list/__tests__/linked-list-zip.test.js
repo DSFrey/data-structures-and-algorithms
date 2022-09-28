@@ -2,8 +2,7 @@
 
 // Require our linked list implementation
 const LinkedList = require('../index');
-const { zipSort } = require('../linked-list-zip');
-const { zipLists } = require('../linked-list-zip');
+const { zipSort, zipLists } = require('../linked-list-zip');
 
 describe('Linked List Zip', () => {
   test('Zip lists of equal length', () => {
@@ -46,46 +45,46 @@ describe('Linked List Zip', () => {
   });
   test('ZipSort where lists of equal length', () => {
     let list1 = new LinkedList();
-    list1.append('{ 1 }');
-    list1.append('{ 3 }');
-    list1.append('{ 4 }');
+    list1.append(1);
+    list1.append(3);
+    list1.append(4);
     let list2 = new LinkedList();
-    list2.append('{ 2 }');
-    list2.append('{ 5 }');
-    list2.append('{ 6 }');
-    expect(zipSort(list1, list2).toString()).toEqual('{ 1 } -> { 2 } -> { 3 } -> { 4 } -> { 5 } -> { 6 } -> NULL');
+    list2.append(2);
+    list2.append(5);
+    list2.append(6);
+    expect(zipSort(list1, list2).toString()).toEqual('1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL');
   });
   test('Zip where list1 is longer', () => {
     let list1 = new LinkedList();
-    list2.append('{ 1 }');
-    list2.append('{ 4 }');
-    list2.append('{ 5 }');
-    list2.append('{ 6 }');
+    list1.append(1);
+    list1.append(4);
+    list1.append(5);
+    list1.append(6);
     let list2 = new LinkedList();
-    list1.append('{ 2 }');
-    list1.append('{ 3 }');
-    expect(zipSort(list1, list2).toString()).toEqual('{ 1 } -> { 2 } -> { 3 } -> { 4 } -> { 5 } -> { 6 } -> NULL');
+    list2.append(2);
+    list2.append(3);
+    expect(zipSort(list1, list2).toString()).toEqual('1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL');
   });
   test('Zip where list2 is longer', () => {
     let list1 = new LinkedList();
-    list1.append('{ 2 }');
-    list1.append('{ 3 }');
+    list1.append(2);
+    list1.append(3);
     let list2 = new LinkedList();
-    list2.append('{ 1 }');
-    list2.append('{ 4 }');
-    list2.append('{ 5 }');
-    list2.append('{ 6 }');
-    expect(zipSort(list1, list2).toString()).toEqual('{ 1 } -> { 2 } -> { 3 } -> { 4 } -> { 5 } -> { 6 } -> NULL');
+    list2.append(1);
+    list2.append(4);
+    list2.append(5);
+    list2.append(6);
+    expect(zipSort(list1, list2).toString()).toEqual('1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL');
   });
   test('ZipSort where lists have equal values', () => {
     let list1 = new LinkedList();
-    list1.append('{ 1 }');
-    list1.append('{ 3 }');
-    list1.append('{ 4 }');
+    list1.append(1);
+    list1.append(3);
+    list1.append(4);
     let list2 = new LinkedList();
-    list2.append('{ 3 }');
-    list2.append('{ 4 }');
-    list2.append('{ 6 }');
-    expect(zipSort(list1, list2).toString()).toEqual('{ 1 } -> { 3 } -> { 3 } -> { 4 } -> { 4 } -> { 6 } -> NULL');
+    list2.append(3);
+    list2.append(4);
+    list2.append(6);
+    expect(zipSort(list1, list2).toString()).toEqual('1 -> 3 -> 3 -> 4 -> 4 -> 6 -> NULL');
   });
 });
