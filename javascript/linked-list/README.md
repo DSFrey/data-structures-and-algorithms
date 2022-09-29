@@ -36,9 +36,15 @@ Create a Node class that has properties for the value stored in the Node, and a 
   - kthFromEnd
     - arguments: number
     - finds the value of the node a certain number of nodes from the end
+
+  - Stretch Goal: Write an additional method to delete a node with the given value from the linked list
+  - Stretch Goal: Implement a method that finds the node at the middle of the Linked List.
 - Stretch Goal: Implement a doubly linked list
-- Stretch Goal: Write an additional method to delete a node with the given value from the linked list
-- Stretch Goal: Implement a method that finds the node at the middle of the Linked List.
+- Write a function called zip lists
+  - Arguments: 2 linked lists
+  - Return: New Linked List, zipped as noted below
+  - Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the the zipped list.
+- Stretch Goal: Implement a function that merges two sorted linked lists into a single sorted linked list.
 
 ## Approach & Efficiency
 
@@ -69,3 +75,13 @@ Create a Node class that has properties for the value stored in the Node, and a 
 - middleNode
   - time = O(n)
   - space = O(1)
+- zipLists
+  - time = O(n)
+  - space = O(1)
+- zipSort
+  - time = O(n)
+  - space = O(1)
+
+## Whiteboards
+
+![Whiteboard for zipLists challenge](./assets/linked-list-zip.png)
