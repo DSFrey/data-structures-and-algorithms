@@ -54,7 +54,7 @@ describe('Linked List Zip', () => {
     list2.append(6);
     expect(zipSort(list1, list2).toString()).toEqual('1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL');
   });
-  test('Zip where list1 is longer', () => {
+  test('ZipSort where list1 is longer', () => {
     let list1 = new LinkedList();
     list1.append(1);
     list1.append(4);
@@ -65,7 +65,7 @@ describe('Linked List Zip', () => {
     list2.append(3);
     expect(zipSort(list1, list2).toString()).toEqual('1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL');
   });
-  test('Zip where list2 is longer', () => {
+  test('ZipSort where list2 is longer', () => {
     let list1 = new LinkedList();
     list1.append(2);
     list1.append(3);
@@ -86,5 +86,16 @@ describe('Linked List Zip', () => {
     list2.append(4);
     list2.append(6);
     expect(zipSort(list1, list2).toString()).toEqual('1 -> 3 -> 3 -> 4 -> 4 -> 6 -> NULL');
+  });
+  test('ZipSort where list is empty', () => {
+    let list1 = new LinkedList();
+    let list2 = new LinkedList();
+    list2.append(1);
+    list2.append(2);
+    list2.append(3);
+    list2.append(4);
+    list2.append(5);
+    list2.append(6);
+    expect(zipSort(list1, list2).toString()).toEqual('1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL');
   });
 });
