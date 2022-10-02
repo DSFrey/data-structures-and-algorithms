@@ -14,7 +14,7 @@ class Stack {
   }
 
   /**
-   * Adds new node to the beginning of the list
+   * Adds new node to the top of the stack
    * @param {*} value
    */
   push(value) {
@@ -23,14 +23,25 @@ class Stack {
     this.head = node;
   }
 
+  pop() {
+    if (!this.head) throw new Error('Stack is empty');
+    let output = this.head.value;
+    this.head = this.head.next;
+    return output;
+  }
 
+  peek() {
+    console.log(this.head);
+    if (this.head) return this.head.value;
+    throw new Error('Stack is empty');
+  }
 
   toString() {
     let current = this.head;
-    let result = current.value;
-    while (current.next) {
-      current = current.next;
+    let result = '';
+    while (current) {
       result += `{ ${current.value} } -> `;
+      current = current.next;
     }
     result += 'NULL';
     return result;
@@ -47,10 +58,10 @@ class Queue {
 
   toString() {
     let current = this.head;
-    let result = current.value;
-    while (current.next) {
+    let result = '';
+    while (current) {
+      result += `{ ${current.value} } -> `;
       current = current.next;
-      result += ' -> ' + current.value;
     }
     result += ' -> NULL';
     return result;
