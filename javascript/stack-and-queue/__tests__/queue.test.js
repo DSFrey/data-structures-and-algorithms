@@ -48,6 +48,8 @@ describe('Queue', () => {
   });
   test('Calling dequeue or peek on empty queue raises exception', () => {
     let newQueue = new Queue();
+    expect(newQueue.isEmpty()).toBeTruthy();
+    expect(() => newQueue.dequeue()).toThrow('Queue is empty');
     expect(() => newQueue.peek()).toThrow('Queue is empty');
   });
 });
