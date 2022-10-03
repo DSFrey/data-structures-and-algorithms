@@ -37,7 +37,7 @@ describe('Queue', () => {
     expect(newQueue.dequeue()).toEqual(1);
     expect(newQueue.dequeue()).toEqual(2);
     expect(newQueue.dequeue()).toEqual(3);
-    expect(newQueue.peek()).toThrow('Queue is empty');
+    expect(newQueue.toString()).toEqual('NULL');
   });
   test('Can successfully peek into a queue, seeing the expected value', () => {
     let newQueue = new Queue();

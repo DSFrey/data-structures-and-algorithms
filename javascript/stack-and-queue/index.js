@@ -31,9 +31,8 @@ class Stack {
   }
 
   peek() {
-    console.log(this.head);
-    if (this.head) return this.head.value;
-    throw new Error('Stack is empty');
+    if (!this.head) throw new Error('Stack is empty');
+    return this.head.value;
   }
 
   toString() {
@@ -54,7 +53,24 @@ class Queue {
     this.tail = null;
   }
 
+  enqueue(value){
+    let node = new Node(value);
+    if (!this.head) this.head = node;
+    if (this.tail) this.tail.next = node;
+    this.tail = node;
+  }
 
+  dequeue(){
+    if (!this.head) throw new Error('Queue is empty');
+    let output = this.head.value;
+    this.head = this.head.next;
+    return output;
+  }
+
+  peek() {
+    if (!this.head) throw new Error('Queue is empty');
+    return this.head.value;
+  }
 
   toString() {
     let current = this.head;
@@ -63,7 +79,7 @@ class Queue {
       result += `{ ${current.value} } -> `;
       current = current.next;
     }
-    result += ' -> NULL';
+    result += 'NULL';
     return result;
   }
 
