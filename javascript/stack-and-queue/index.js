@@ -10,7 +10,7 @@ class Node {
 
 class Stack {
   constructor() {
-    this.head = null;
+    this.top = null;
   }
 
   /**
@@ -19,24 +19,28 @@ class Stack {
    */
   push(value) {
     const node = new Node(value);
-    node.next = this.head;
-    this.head = node;
+    node.next = this.top;
+    this.top = node;
   }
 
   pop() {
-    if (!this.head) throw new Error('Stack is empty');
-    let output = this.head.value;
-    this.head = this.head.next;
+    if (!this.top) throw new Error('Stack is empty');
+    let output = this.top.value;
+    this.top = this.top.next;
     return output;
   }
 
   peek() {
-    if (!this.head) throw new Error('Stack is empty');
-    return this.head.value;
+    if (!this.top) throw new Error('Stack is empty');
+    return this.top.value;
+  }
+
+  isEmpty(){
+    return !this.head;
   }
 
   toString() {
-    let current = this.head;
+    let current = this.top;
     let result = '';
     while (current) {
       result += `{ ${current.value} } -> `;
@@ -49,31 +53,35 @@ class Stack {
 
 class Queue {
   constructor() {
-    this.head = null;
-    this.tail = null;
+    this.front = null;
+    this.back = null;
   }
 
   enqueue(value){
     let node = new Node(value);
-    if (!this.head) this.head = node;
-    if (this.tail) this.tail.next = node;
-    this.tail = node;
+    if (!this.front) this.front = node;
+    if (this.back) this.back.next = node;
+    this.back = node;
   }
 
   dequeue(){
-    if (!this.head) throw new Error('Queue is empty');
-    let output = this.head.value;
-    this.head = this.head.next;
+    if (!this.front) throw new Error('Queue is empty');
+    let output = this.front.value;
+    this.front = this.front.next;
     return output;
   }
 
   peek() {
-    if (!this.head) throw new Error('Queue is empty');
-    return this.head.value;
+    if (!this.front) throw new Error('Queue is empty');
+    return this.front.value;
+  }
+
+  isEmpty(){
+    return !this.head;
   }
 
   toString() {
-    let current = this.head;
+    let current = this.front;
     let result = '';
     while (current) {
       result += `{ ${current.value} } -> `;
