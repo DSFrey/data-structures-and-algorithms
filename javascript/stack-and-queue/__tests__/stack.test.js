@@ -48,6 +48,8 @@ describe('Stack', () => {
   });
   test('Calling pop or peek on empty stack raises exception', () => {
     let newStack = new Stack();
+    expect(newStack.isEmpty()).toBeTruthy();
     expect(() => newStack.peek()).toThrow('Stack is empty');
+    expect(() => newStack.pop()).toThrow('Stack is empty');
   });
 });
