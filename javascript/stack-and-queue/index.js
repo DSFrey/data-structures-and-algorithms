@@ -36,7 +36,7 @@ class Stack {
   }
 
   isEmpty(){
-    return !this.head;
+    return !this.top;
   }
 
   toString() {
@@ -77,7 +77,7 @@ class Queue {
   }
 
   isEmpty(){
-    return !this.head;
+    return !this.front;
   }
 
   toString() {
