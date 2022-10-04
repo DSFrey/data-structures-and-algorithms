@@ -1,6 +1,6 @@
 'use strict';
 
-const { Animal, AnimalShelter } = require('../stack-queue-animal-shelter');
+const { Animal, AnimalShelter } = require('../stack-queue-animal-shelter/');
 
 describe('Animal shelter queue', () => {
   let dog1 = new Animal('Dog1', 'dog');
