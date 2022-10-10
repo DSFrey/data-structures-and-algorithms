@@ -81,7 +81,7 @@ class SearchTree extends BinaryTree {
       if (value < currentNode.value) {
         if (currentNode.left) {
           currentNode = currentNode.left;
-          search(value);
+          return search(value);
         } else {
           return false;
         }
@@ -89,7 +89,7 @@ class SearchTree extends BinaryTree {
       if (value > currentNode.value) {
         if (currentNode.right) {
           currentNode = currentNode.right;
-          search(value);
+          return search(value);
         } else {
           return false;
         }
