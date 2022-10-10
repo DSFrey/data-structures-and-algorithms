@@ -14,6 +14,9 @@ Create a Binary Tree class
   - pre order
   - in order
   - post order
+- find maximum value
+  - Arguments: none
+  - Returns: number
 
 ### Binary Search Tree
 
@@ -32,3 +35,6 @@ Create a Binary Search Tree class. This class should be a sub-class (or your lan
 All of the Binary Tree traversal methods have a time complexity of O(n) where n is the number of nodes in the tree.
 
 The SearchTree's add and contain functions both have a time complexity of O(h), where h is the height of the tree; in a balanced tree, this is equivalent to O(log n) for n nodes.
+
+Find maximum value has a time complexity of O(n), as it traverses the entire tree. It has constant O(1) space requirements.
+![maxValue Whiteboard](./assests/Code-Challenge-16.png)
