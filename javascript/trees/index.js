@@ -12,28 +12,34 @@ class BinaryTree {
   }
 
   preOrder() {
+    let output = [];
     const traverse = (node) => {
-      console.log(node);
+      output.push(node.value);
       if (node.left) traverse(node.left);
       if (node.right) traverse(node.right);
     };
     traverse(this.root);
+    return output;
   }
   inOrder() {
+    let output = [];
     const traverse = (node) => {
       if (node.left) traverse(node.left);
-      console.log(node);
+      output.push(node.value);
       if (node.right) traverse(node.right);
     };
     traverse(this.root);
+    return output;
   }
   postOrder() {
+    let output = [];
     const traverse = (node) => {
       if (node.left) traverse(node.left);
       if (node.right) traverse(node.right);
-      console.log(node);
+      output.push(node.value);
     };
     traverse(this.root);
+    return output;
   }
 }
 
@@ -89,4 +95,4 @@ class SearchTree extends BinaryTree {
   }
 }
 
-module.exports = { BinaryTree, SearchTree };
+module.exports = { Node, BinaryTree, SearchTree };
