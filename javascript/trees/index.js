@@ -41,6 +41,18 @@ class BinaryTree {
     traverse(this.root);
     return output;
   }
+
+  maxValue() {
+    if (!this.root) throw new Error('Tree is empty');
+    let tempMax = this.root.value;
+    const traverse = (node) => {
+      if (node.value > tempMax) tempMax = node.value;
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    };
+    traverse(this.root);
+    return tempMax;
+  }
 }
 
 class SearchTree extends BinaryTree {
