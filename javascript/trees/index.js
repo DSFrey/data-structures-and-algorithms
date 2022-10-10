@@ -53,7 +53,7 @@ class SearchTree extends BinaryTree {
           currentNode = currentNode.left;
           search(value);
         } else {
-          currentNode.left = new Node(value);
+          currentNode.left = new Node(newValue);
           return;
         }
       }
@@ -62,12 +62,16 @@ class SearchTree extends BinaryTree {
           currentNode = currentNode.right;
           search(value);
         } else {
-          currentNode.right = new Node(value);
+          currentNode.right = new Node(newValue);
           return;
         }
       }
     };
-    search(newValue);
+    if (currentNode) {
+      search(newValue);
+    } else {
+      this.root = new Node(newValue);
+    }
   }
 
   contains(searchValue) {
