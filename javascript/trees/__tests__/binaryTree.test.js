@@ -29,4 +29,16 @@ describe('Binary Tree works as expected', () => {
   test('Return a collection from a postorder traversal', () => {
     expect(tree.postOrder()).toEqual([4, 5, 2, 6, 7, 3, 1]);
   });
+  test('Return the maximum value in the tree', () => {
+    expect(tree.maxValue()).toEqual(7);
+    let negativeTree = new BinaryTree();
+    negativeTree.root = new Node(-12);
+    negativeTree.root.left = new Node(-2);
+    negativeTree.root.right = new Node(-53);
+    expect(negativeTree.maxValue()).toEqual(-2);
+  });
+  test('Max value returns exception if the tree is empty', ()=>{
+    let emptyTree = new BinaryTree();
+    expect(() => emptyTree.maxValue()).toThrow('Tree is empty');
+  });
 });
