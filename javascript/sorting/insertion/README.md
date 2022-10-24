@@ -45,7 +45,7 @@ Now the process starts at index 5. The value 15 is stored in `temp` and compared
 
 ![step 6](./assets/insertion-sort-6.png)
 
-## Efficiency:
+## Efficiency
 
 Time: O(n^2)
 
