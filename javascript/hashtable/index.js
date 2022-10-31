@@ -14,6 +14,7 @@ class Hashtable {
 
   get(key) {
     let index = this.hash(key);
+    if (!this.buckets[index]) return null;
     for (let i = 0; i < this.buckets[index].length; i++) {
       if (this.buckets[index][i][0] === key) return this.buckets[index][i][1];
     }
@@ -34,6 +35,7 @@ class Hashtable {
 
   has(key) {
     let index = this.hash(key);
+    if (!this.buckets[index]) return false;
     for (let i = 0; i < this.buckets[index].length; i++) {
       if (this.buckets[index][i][0] === key) return true;
     }
@@ -41,7 +43,7 @@ class Hashtable {
   }
 
   keys() {
-    this.buckets.reduce((bucketList, bucket) => {
+    return this.buckets.reduce((bucketList, bucket) => {
       if (!bucket) return bucketList;
       let keyList = bucket.reduce((keyList, pair) => {
         return [...keyList, pair[0]];
