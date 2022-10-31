@@ -1,29 +1,33 @@
 'use strict';
 
-const Hashtable = require(".");
+const Hashtable = require('.');
 
 function firstRepeat(inputString) {
-  let wordArray = inputString.match(/\b\w+\b/);
+  let wordArray = inputString.match(/\b\w+\b/g);
   let wordHash = new Hashtable(32);
-  wordArray.forEach(word => {
+  for (const rawWord of wordArray) {
+    const word = rawWord.toLowerCase();
     if (wordHash.has(word)) {
       return word;
+    } else {
+      wordHash.set(word, 1);
     }
-  });
+  }
   return null;
 }
 
 function countByWord(inputString) {
-  let wordArray = inputString.match(/\b\w+\b/);
+  let wordArray = inputString.match(/\b\w+\b/g);
   let wordHash = new Hashtable(32);
-  wordArray.forEach(word => {
+  for (const rawWord of wordArray) {
+    const word = rawWord.toLowerCase();
     if (wordHash.has(word)) {
       let total = wordHash.get(word);
       wordHash.set(word, total + 1);
     } else {
       wordHash.set(word, 1);
     }
-  });
+  }
   const wordList = wordHash.keys();
   return wordList.forEach(word => [word, wordHash.get(word)]);
 }
@@ -41,3 +45,5 @@ function frequentWord(inputString) {
   },[['',0]]);
   return topWordCount.forEach(word => word[0]);
 }
+
+module.exports = {firstRepeat, countByWord, frequentWord};
