@@ -27,3 +27,6 @@ To run your tests
 |[Array Binary Search](./javascript/array-binary-search/README.md)|
 |[Linked List](./javascript/linked-list/README.md)|
 |[Trees](./javascript/trees/README.md)|
+|[Insertion Sort](./javascript/sorting/insertion/README.md)|
+|[Merge Sort](./javascript/sorting/merge/README.md)|
+|[Hashtable](./javascript/hashtable/README.md)|
