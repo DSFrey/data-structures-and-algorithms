@@ -25,6 +25,19 @@ function countByWord(inputString) {
     }
   });
   const wordList = wordHash.keys();
-  const wordCount = wordList.map(word => [word, wordHash.get(word)]);
-  return wordCount;
+  return wordList.forEach(word => [word, wordHash.get(word)]);
+}
+
+function frequentWord(inputString) {
+  const wordCount = countByWord(inputString);
+  const topWordCount = wordCount.reduce((topWords, word) => {
+    if (word[1] > topWords[0][1]) {
+      return [word];
+    } else if (word[1] === topWords[0][1]) {
+      return [...topWords, word];
+    } else {
+      return topWords;
+    }
+  },[['',0]]);
+  return topWordCount.forEach(word => word[0]);
 }
