@@ -31,6 +31,24 @@ class Hashtable {
     }
     this.buckets[index].push([key, value]);
   }
+
+  has(key) {
+    let index = this.hash(key);
+    for (let i = 0; i < this.buckets[index].length; i++) {
+      if (this.buckets[index][i][0] === key) return true;
+    }
+    return false;
+  }
+
+  keys() {
+    this.buckets.reduce((bucketList, bucket) => {
+      if (!bucket) return bucketList;
+      let keyList = bucket.reduce((keyList, pair) => {
+        return [...keyList, pair[0]];
+      }, []);
+      return [...bucketList, ...keyList];
+    }, []);
+  }
 }
 
 module.exports = Hashtable;
