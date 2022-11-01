@@ -1,6 +1,6 @@
 # Hashtables
 
-## Challenge
+## Hashtable Challenge
 
 Implement a Hashtable Class with the following methods:
 
@@ -21,17 +21,17 @@ Implement a Hashtable Class with the following methods:
   - Arguments: key
   - Returns: Index in the collection for that key
 
-## Approach
+### Approach
 
 I used a series of nested arrays, with the top level array using a hashing function to determine the index for a key-value pair.
 
-## Efficiency
+### Efficiency
 
 - Time: `set`, `get`, and `has` are all O(1) assuming a perfect mapping; if there are collisions, they are O(b), where b is the size of the bucket. `keys` will always be O(n), as it must loop over the wole table. `hash` will always be O(1), as it is not dependent on the size of the table.
 
 - Space: O(n), growing linearly with the data it contains.
 
-## API
+### API
 
 - `new Hashtable(int)` creates a new hashtable with an integer length `int`
 - `set(key, value)` inserts a new key-value pair into the data structure
@@ -39,3 +39,26 @@ I used a series of nested arrays, with the top level array using a hashing funct
 - `has(key)` returns a boolean indicating the presence of the given key
 - `keys()` returns an array of all keys in the data structure
 - `hash(key)` returns the hashed index value for the given key
+
+## Reapeated Word
+
+- Write a function called repeated word that finds the first word to occur more than once in a string.
+  - Arguments: string
+  - Return: string
+- Stretch goal: Modify your function to return a count of each of the words in the provided string.
+- Stretch goal: Modify your function to return a list of the words most frequently used in the provided string.
+
+### Reapeated Word Approach
+
+Putting each word into a hashmap allows for a lookup time of O(1), simplifying finding duplicate words. From there, it is taking advantage of the `keys` method and array manipulation to accomplish the stretch goals.
+
+### Reapeated Word Efficiency
+
+- Time: All three functions take O(n) time, as they require looping through an array.
+- Space: All three functions take O(n) space, as they create newdata structures with the same size as the input.
+
+### Reapeated Word API
+
+- `firstRepeat` finds the first repeated word in a string
+- `countByWord` finds the count of every word in a string
+- `frequentWord` finds the words that are repeated the most times in a string
