@@ -47,3 +47,18 @@ I used a series of nested arrays, with the top level array using a hashing funct
   - Return: string
 - Stretch goal: Modify your function to return a count of each of the words in the provided string.
 - Stretch goal: Modify your function to return a list of the words most frequently used in the provided string.
+
+### Reapeated Word Approach
+
+Putting each word into a hashmap allows for a lookup time of O(1), simplifying finding duplicate words. From there, it is taking advantage of the `keys` method and array manipulation to accomplish the stretch goals.
+
+### Reapeated Word Efficiency
+
+- Time: All three functions take O(n) time, as they require looping through an array.
+- Space: All three functions take O(n) space, as they create newdata structures with the same size as the input.
+
+### Reapeated Word API
+
+- `firstRepeat` finds the first repeated word in a string
+- `countByWord` finds the count of every word in a string
+- `frequentWord` finds the words that are repeated the most times in a string
