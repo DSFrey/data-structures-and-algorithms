@@ -59,6 +59,28 @@ Putting each word into a hashmap allows for a lookup time of O(1), simplifying f
 
 ### Reapeated Word API
 
-- `firstRepeat` finds the first repeated word in a string
-- `countByWord` finds the count of every word in a string
-- `frequentWord` finds the words that are repeated the most times in a string
+- `firstRepeat(string)` finds the first repeated word in a string
+- `countByWord(string)` finds the count of every word in a string
+- `frequentWord(string)` finds the words that are repeated the most times in a string
+
+## Tree Intersection
+
+Find common values in 2 binary trees.
+
+### Tree Intersection Approach
+
+The first tree has each node value converted to a string and put into a hashmap, allowing for a lookup time of O(1). The second tree is then traversed, checking if the hashmap contains each string-converted value using `Hashtable.has(key)`.
+
+### Tree Intersection Efficiency
+
+- Time: O(m + n) The function must traverse each tree once, but because a hashmap as O(1) lookup time, there is no compounding of loops.
+- Space: O(m) Only the first tree is placed into a new data structure; the second tree requires no additional storage.
+
+### Tree Intersection API
+
+- `inOrderCallback(tree, callback)` performs an in-order traversal of a binary tree, running a given callback on the value of each node
+- `treeIntersection(tree1, tree2)` finds all common values in two binary trees
+
+### Tree Intersection Stretch Goal
+
+When running an in-order traverse on a binary search tree, the values are output from smallest to largest. This would mean that a hashmap is not required for O(1) lookup time, as the comparison portion of the algorithm could just iterate through an array. While this would not reduce the time efficiency into another category, it would reduce the coefficient as there would be no need to perform hashing calculations.
