@@ -29,7 +29,7 @@ function countByWord(inputString) {
     }
   }
   const wordList = wordHash.keys();
-  return wordList.forEach(word => [word, wordHash.get(word)]);
+  return wordList.map(word => [word, wordHash.get(word)]);
 }
 
 function frequentWord(inputString) {
@@ -43,7 +43,7 @@ function frequentWord(inputString) {
       return topWords;
     }
   },[['',0]]);
-  return topWordCount.forEach(word => word[0]);
+  return topWordCount.map(word => word[0]);
 }
 
 module.exports = {firstRepeat, countByWord, frequentWord};
