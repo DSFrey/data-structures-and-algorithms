@@ -34,4 +34,7 @@ describe('join works properly', () => {
     );
     expect(result).not.toContainEqual(['outfit', 'garb', null]);
   });
+  test('Throws error when third argument is not an accepted join', () => {
+    expect(()=>join(synonyms,antonyms,'top')).toThrow('Not an acceptable join');
+  });
 });
