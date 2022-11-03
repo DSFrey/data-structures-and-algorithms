@@ -84,3 +84,24 @@ The first tree has each node value converted to a string and put into a hashmap,
 ### Tree Intersection Stretch Goal
 
 When running an in-order traverse on a binary search tree, the values are output from smallest to largest. This would mean that a hashmap is not required for O(1) lookup time, as the comparison portion of the algorithm could just iterate through an array. While this would not reduce the time efficiency into another category, it would reduce the coefficient as there would be no need to perform hashing calculations.
+
+## Join
+
+Implement a simplified LEFT JOIN for 2 Hashmaps.
+
+### Join Approach
+
+The keys are extracted from the first hashmap, then that array is mapped to a new array where each item is an array containing the key, the value we get from map 1, and the value we get from map 2.
+
+### Join Efficiency
+
+- Time: O(n) The function must traverse the first hashmap and then the array of keys created. The size of the second hashmap does not matter.
+- Space: O(n) Only the first hashmap is placed into a new data structure; the second hashmap requires no additional storage.
+
+### Join API
+
+- `join(hashmap1, hashmap2, join-side)` performs a join for the two hashmaps. It will be a left join unless the join-side parameter is included with the value 'right'.
+
+### Join Stretch Goal
+
+It would probably be easier to do a right join by just switching the order of your arguments, but I added an optional parameter to let the function do the switching for you (that is, extract the keys from the second array instead).
