@@ -1,9 +1,3 @@
-class Vertex {
-  constructor(value) {
-    this.value = value;
-  }
-}
-
 class Edge {
   constructor(endpoint, weight = 1) {
     this.endpoint = endpoint;
@@ -17,9 +11,8 @@ class Graph {
   }
 
   addVertex (value) {
-    const vertex = new Vertex(value);
-    this.adjacencyList.set(vertex, []);
-    return vertex;
+    this.adjacencyList.set(value, []);
+    return value;
   }
 
   addEdge (vertex, endpoint, weight = 1) {
@@ -28,11 +21,11 @@ class Graph {
   }
 
   getVertices () {
-    return this.adjacencyList.keys();
+    return [...this.adjacencyList.keys()];
   }
 
   getNeighbors (vertex) {
-    return [...this.adjacencyList.clear.get(vertex)];
+    return [...this.adjacencyList.get(vertex)];
   }
 
   size() {
