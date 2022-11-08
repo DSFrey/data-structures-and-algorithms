@@ -27,10 +27,15 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
   - Arguments: none
   - Returns the total number of nodes in the graph
   - 0 if there are none
+- breadth first
+  - Arguments: Node
+  - Return: A collection of nodes in the order they were visited.
+  - Display the collection
+- Stretch Goal: Once you’ve achieved a working solution, define a new method that accepts two nodes as input and uses your traversal algorithm to determine if a path exists between the two nodes.
 
 ## Approach & Efficiency
 
-This implementation takes advantage of javascript's Map object and its O(1) lookup time. This means all of these methods have O(1) time efficiency except for `getVertices`, which has O(n) time efficiency as it returns all vertices in the graph. None of these methods require any additional data structures in their processing, so they all have O(1) space efficiency.
+This implementation takes advantage of javascript's Map object and its O(1) lookup time. This means `addVertex`, `addEdge`, `getNeighbors`, and `size` all have O(1) time efficiency, while `getVertices`, `breadthTraversal`, and `checkConnected` have O(n) time efficiency as they must visit all vertices in the graph. None of these methods require any additional data structures in their processing, so they all have O(1) space efficiency.
 
 ## API
 
@@ -39,3 +44,5 @@ This implementation takes advantage of javascript's Map object and its O(1) look
 - `getVertices` returns a list of all vertices in the graph
 - `getNeighbors(vertex)` returns a list of all edges starting at a vertex
 - `size` returns the number of vertices in the graph
+- `breadthTraversal(vertex, callback)` performs a breadth-first traveral starting at the given vertex; if included, it will perform a callback function at each vertex. It returns a list of all vertices visited
+- `checkConnected(vertex1, vertex2)` returns a boolean indicating whether there is a path between the two vertices.
