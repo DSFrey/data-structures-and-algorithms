@@ -40,9 +40,37 @@ describe('Graph class tests', () => {
   test('A graph with only one node and edge can be properly returned', () => {
     let soloGraph = new Graph();
     soloGraph.addVertex('solo');
-    soloGraph.addEdge('solo','solo');
+    soloGraph.addEdge('solo', 'solo');
 
     expect(soloGraph.getVertices()).toEqual(['solo']);
     expect(soloGraph.getNeighbors('solo')).toEqual([{ endpoint: 'solo', weight: 1 }]);
+  });
+
+  test('Can perform a breadth-first traversal', () => {
+    testGraph.addVertex('deep1');
+    testGraph.addVertex('deep2');
+    testGraph.addEdge('anotherTest', 'deep1');
+    testGraph.addEdge('weightedTest', 'deep1');
+    testGraph.addEdge('weightedTest', 'deep2');
+
+    expect([...testGraph.breadthTraversal('test')]).toEqual(['test', 'anotherTest', 'weightedTest', 'deep1', 'deep2']);
+    expect([...testGraph.breadthTraversal('test')]).not.toEqual(['test', 'anotherTest', 'deep1', 'weightedTest', 'deep2']);
+  });
+
+  test('Can run a callback during traversal', () => {
+    let result = '';
+    const firstLetter = (value) => result += value[0];
+    testGraph.breadthTraversal('test', firstLetter);
+
+    expect(result).toEqual('tawdd');
+  });
+
+  test('checkConnected returns true if there is a path between two vertices', () => {
+    expect(testGraph.checkConnected('test', 'deep1')).toBeTruthy();
+  });
+  test('checkConnected returns false if there is no path between to vertices', () => {
+    testGraph.addVertex('island');
+
+    expect(testGraph.checkConnected('test', 'island')).toBeFalsy();
   });
 });

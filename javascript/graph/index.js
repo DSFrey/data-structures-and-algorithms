@@ -31,6 +31,32 @@ class Graph {
   size() {
     return this.adjacencyList.size;
   }
+
+  breadthTraversal(root, callback) {
+    let queue = [root];
+    let visited = new Set();
+    visited.add(root);
+    let current;
+
+    while (queue.length) {
+      current = queue.shift();
+      if (callback) callback(current);
+
+      let neighbors = this.getNeighbors(current);
+      for (let edge of neighbors) {
+        if (!visited.has(edge.endpoint)) {
+          visited.add(edge.endpoint);
+          queue.push(edge.endpoint);
+        }
+      }
+    }
+    return visited;
+  }
+
+  checkConnected(vertex1, vertex2) {
+    let group = this.breadthTraversal(vertex1);
+    return group.has(vertex2);
+  }
 }
 
 module.exports = Graph;
