@@ -30,3 +30,4 @@ To run your tests
 |[Insertion Sort](./javascript/sorting/insertion/README.md)|
 |[Merge Sort](./javascript/sorting/merge/README.md)|
 |[Hashtable](./javascript/hashtable/README.md)|
+|[Graph](./javascript/graph/README.md)|
