@@ -73,4 +73,16 @@ describe('Graph class tests', () => {
 
     expect(testGraph.checkConnected('test', 'island')).toBeFalsy();
   });
+  test('Can perform a depth-first traversal', () => {
+    expect([...testGraph.depthTraversal('test')]).toEqual(['test', 'weightedTest', 'deep2', 'deep1', 'anotherTest']);
+    expect([...testGraph.depthTraversal('test')]).not.toEqual(['test', 'anotherTest', 'weightedTest', 'deep1', 'deep2']);
+  });
+
+  test('Can run a callback during depth-first traversal', () => {
+    let result = '';
+    const firstLetter = (value) => result += value[0];
+    testGraph.depthTraversal('test', firstLetter);
+
+    expect(result).toEqual('twdda');
+  });
 });

@@ -10,21 +10,21 @@ class Graph {
     this.adjacencyList = new Map();
   }
 
-  addVertex (value) {
+  addVertex(value) {
     this.adjacencyList.set(value, []);
     return value;
   }
 
-  addEdge (vertex, endpoint, weight = 1) {
+  addEdge(vertex, endpoint, weight = 1) {
     const neighbors = this.adjacencyList.get(vertex);
     neighbors.push(new Edge(endpoint, weight));
   }
 
-  getVertices () {
+  getVertices() {
     return [...this.adjacencyList.keys()];
   }
 
-  getNeighbors (vertex) {
+  getNeighbors(vertex) {
     return [...this.adjacencyList.get(vertex)];
   }
 
@@ -51,6 +51,29 @@ class Graph {
       }
     }
     return visited;
+  }
+
+  depthTraversal(root, callback) {
+    let stack = [root];
+    let visited = new Set();
+    visited.add(root);
+    let current;
+    let output = [];
+
+    while (stack.length) {
+      current = stack.pop();
+      if (callback) callback(current);
+      output.push(current);
+
+      let neighbors = this.getNeighbors(current);
+      for (let edge of neighbors) {
+        if (!visited.has(edge.endpoint)) {
+          visited.add(edge.endpoint);
+          stack.push(edge.endpoint);
+        }
+      }
+    }
+    return output;
   }
 
   checkConnected(vertex1, vertex2) {
