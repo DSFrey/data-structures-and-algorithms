@@ -58,20 +58,22 @@ class Graph {
     let visited = new Set();
     visited.add(root);
     let current;
+    let output = [];
 
     while (stack.length) {
       current = stack.pop();
       if (callback) callback(current);
+      output.push(current);
 
-      let neighbors =  this.getNeighbors(current);
+      let neighbors = this.getNeighbors(current);
       for (let edge of neighbors) {
-        if (!visited.has(edge.endpoint)){
+        if (!visited.has(edge.endpoint)) {
           visited.add(edge.endpoint);
           stack.push(edge.endpoint);
         }
       }
     }
-    return visited;
+    return output;
   }
 
   checkConnected(vertex1, vertex2) {
